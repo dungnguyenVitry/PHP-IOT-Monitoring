@@ -1,0 +1,62 @@
+/* device.php
+
+Cette fonction, je l'ai écrite dans le cas où je crée une règle pour une valeur de device, mais si j'ai plus de temps, je l'utiliserai.
+function evaluateRule($reading_value, $operator_name, $threshold) {
+    switch ($operator_name) {
+        case 'More Than':
+            $result = $reading_value > $threshold;
+            break;
+        case 'Less Than':
+            $result = $reading_value < $threshold;
+            break;
+        case 'More Than or Equal':
+            $result = $reading_value >= $threshold;
+            break;
+        case 'Less Than or Equal':
+            $result = $reading_value <= $threshold;
+            break;
+        case 'Equal':
+            $result = $reading_value == $threshold;
+            break;
+        default:
+            $result = false;
+            break;
+    }
+    return $result;
+}
+
+function checkAndCreateNotifications($pdo, $readings, $device_id) {
+    // Lặp qua dữ liệu đọc và quy tắc để tạo thông báo
+    $rule_sql = "SELECT * FROM alarm_rules WHERE device_id = :device_id";
+    $rule_stmt = $pdo->prepare($rule_sql);
+    $rule_stmt->execute([':device_id' => $device_id]);
+    $rules = $rule_stmt->fetchAll(PDO::FETCH_ASSOC);
+    // echo $device_id;
+
+    foreach ($readings as $reading) {
+        foreach ($rules as $rule) {
+            $device_id = $reading['device_id'];
+            $reading_value = $reading['reading'];
+            $operator_name = $rule['operator_name'];
+            $threshold = $rule['value'];
+
+
+            // Kiểm tra xem thông báo đã tồn tại trong phiên làm việc hay chưa
+          
+                if (evaluateRule($reading_value, $operator_name, $threshold)) {
+                    $notification_insert = "$operator_name $threshold!";
+                    // echo $notification_insert;
+                    
+                    // Thêm thông báo vào cơ sở dữ liệu
+                    $notification_insert_sql = "INSERT INTO device_notifications (device_reading_id, notification, created_at) VALUES (:device_reading_id, :notification_insert, NOW())";
+                    $notification_insert_stmt = $pdo->prepare($notification_insert_sql);
+                    $notification_insert_stmt->execute([
+                        ':device_reading_id' => $reading['id'],
+                        ':notification_insert' => $notification_insert
+                    ]);
+                }
+    
+        }
+    }
+}
+ */

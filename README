@@ -1,0 +1,42 @@
+// SQL.
+
+Vous pouvez trouver le fichier SQL dans le dossier. Il est intitulé iot_monitor.sql.
+
+
+
+//CONNECT BASE DE DONNES
+
+J'ai placé des informations sur la connexion à la base de données dans le dossier "help". 
+Vous pouvez le modifier dans le fichier conn.php.
+
+
+
+// AFFICHAGE CORRECT
+
+J'ai utilisé XAMPP, donc pour afficher, le dossier est stocké dans htdocs.
+
+Après avoir exécuté le programme, veuillez tester l'URL suivante en premier lieu,
+et vous pouvez le personnaliser pour correspondre à votre chemin: http://localhost/test_Dung/user/dashboard.php
+
+De plus, j'ai utilisé des bibliothèques JS supplémentaires comme chatJS pour dessiner des graphiques
+et momentJS pour obtenir des données temporelles.
+
+
+
+// LE FONCTIONEMENT
+
+J'ai écrit une fonction qui ajoute automatiquement les valeurs lues du "device" toutes les 10 secondes.
+J'ai utilisé la fonction `setInterval` de JavaScript, ce qui signifie que dès que vous ouvrez les détails du dispositif,
+cette fonction est appelée et il faut attendre 10 secondes pour voir les nouvelles valeurs ajoutées à la table et au graphique. 
+D'autre part, j'ai également utilisé `setInterval` pour générer l'état du "device" ("broken" ou en "working-ưell").
+Si l'état est "Broken", le bouton "Repair" s'affiche. Après avoir appuyé sur le bouton "Repair", vous devez attendre un certain délai
+pour charger le nouvel état du device ainsi que les nouvelles valeurs à partir de la table.
+Actuellement, je n'ai pas trouvé de meilleure solution.
+Il est possible que même après avoir appuyé sur le bouton "Repair", le nouvel état généré soit toujours "broken",
+ce qui signifie que le bouton "Repair" ne disparaîtra pas après 10 secondes.
+Vous devrez appuyer à nouveau et attendre 10 secondes si l'attente est trop longue.
+
+//RESULTATS
+
+J'ai placé les captures d'écran de chaque page dans le dossier "resultats".
+Vous pouvez voir l'interface une fois que j'aurai terminé.

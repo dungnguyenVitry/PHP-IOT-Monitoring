@@ -1,0 +1,88 @@
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding-bottom: 20px; 
+}
+
+
+.pagination button,
+.pagination input[type="text"] {
+    vertical-align: middle;
+}
+
+
+.pagination-button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+
+.pagination-input {
+    width: 30px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+
+#previousPage, #nextPage {
+    background-color: #0056b3;
+}
+
+#previousPage:hover, #nextPage:hover {
+    background-color: #003e8d;
+}
+
+
+#goToPage {
+    background-color: #27a844;
+}
+
+#goToPage:hover {
+    background-color: #1d8d36;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 8px;
+    text-align: center; 
+}
+
+#statusText {
+    background-color: #3498db;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+  }
+#statusText {
+    display: none;
+    
+  }  
+
+#repairButton {
+    display: none;
+    background-color: #4CAF50; 
+    color: white; 
+    padding: 10px 20px;
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+
+#repairButton:hover {
+    background-color: #45a049; 
+}
